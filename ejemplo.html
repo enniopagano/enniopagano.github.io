@@ -8,11 +8,15 @@
 </head>
 <body>
     <input type="text" id="texto" />
-    <textarea id="parrafo"></textarea>
+    <button type="button" onclick="takeResult()">Submit</button>
     <script>
-        var valor = document.getElementById("texto").value;
-
-        var valor = document.getElementById("parrafo").value;
+        function takeResult() {
+            var valor = document.getElementById("texto").value;
+        let nodo = document.createElement("p");
+        let result = document.createTextNode(valor);
+        nodo.appendChild(result);
+        document.body.appendChild(nodo);
+        }
     </script>
 </body>
 </html>
