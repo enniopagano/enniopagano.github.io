@@ -7,16 +7,50 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="texto" />
-    <button type="button" onclick="takeResult()">Submit</button>
+    <!-- <input type="text" id="texto" /> -->
+    <!-- <button type="button" onclick="takeResult()">Submit</button> -->
+    <button type="button" onclick="planoq()">Si</button>
+    <div id="fua"></div>
+    <button type="button" onclick="friccionq()">Si</button>
+    <div id="foa"></div>
     <script>
+        function planoq() {
+            const fua = document.getElementById("fua");
+            fua.innerHTML = `
+                <label class="col-form-label mt-4">¿A cuántos grados está inclinado el cuerpo?</label>
+                <input type="number">
+            `
+        }
+
+        function friccionq() {
+            const foa = document.getElementById("foa");
+            foa.innerHTML = `
+            <label class="col-form-label mt-4">¿Qué materiales componen los cuerpos?</label>
+            <select multiple="" class="form-select" id="exampleSelect2">
+                <option>Madera sobre madera</option>
+                <option>Acero sobre hielo</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            `
+        }
+
         function takeResult() {
             var valor = document.getElementById("texto").value;
-        let nodo = document.createElement("p");
-        let result = document.createTextNode(valor);
-        nodo.appendChild(result);
-        document.body.appendChild(nodo);
+            let nodo = document.createElement("p");
+            let result = document.createTextNode(valor);
+            nodo.appendChild(result);
+            document.body.appendChild(nodo);
         }
+        
+        // function takeResult() {
+        //     var valor = document.getElementById("texto").value;
+        //     let nodo = document.createElement("p");
+        //     let result = document.createTextNode(valor);
+        //     nodo.appendChild(result);
+        //     document.body.appendChild(nodo);
+        // }
     </script>
 </body>
 </html>

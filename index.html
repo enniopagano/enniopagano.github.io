@@ -9,37 +9,38 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                <h1>Calculadora de vectores</h1>
+      <div class="row">
+        <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <h1>Calculadora de vectores</h1>
+              <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">Masa del cuerpo(Kilogramos)</label>
+                <input type="text" class="form-control"  id="">
+              </div>
+              <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">Ingrese la fuerza aplicada al cuerpo (Newton)(Ingresar valor negativo (-) para mover el objeto en la direccion opuesta)</label>
+                <input type="text" class="form-control"  id="inputDefault">
+              </div>
+              <div class="form-group">
+                <label for="exampleSelect1" class="form-label mt-4">¿El plano está inclinado?</label>
                 <div class="form-group">
-                    <label class="col-form-label mt-4" for="inputDefault">Masa del cuerpo(Kilogramos)</label>
-                    <input type="text" class="form-control"  id="">
+                  <button type="button" class="btn btn-primary" onclick="planoq()">Si</button>
+                  <button type="button" class="btn btn-primary" onclick="">No</button>
                 </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleSelect1" class="form-label mt-4">¿Hay fricción?</label>
                 <div class="form-group">
-                    <label class="col-form-label mt-4" for="inputDefault">Ingrese la fuerza aplicada al cuerpo (Newton)(Ingresar valor negativo (-) para mover el objeto en la direccion opuesta)</label>
-                    <input type="text" class="form-control"  id="inputDefault">
+                  <button type="button" class="btn btn-primary" onclick="friccionq()">Si</button>
+                  <button type="button" class="btn btn-primary" onclick="">No</button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleSelect1" class="form-label mt-4">¿El plano está inclinado?</label>
-                    <div class="form-group">
-                      <button type="button" class="btn btn-primary">Si</button>
-                      <button type="button" class="btn btn-primary">No</button>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleSelect1" class="form-label mt-4">¿Hay fricción?</label>
-                    <select class="form-select" id="exampleSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-            </div>
-        </div>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div id="planoq"></div>
+              <div id="friccionq"></div>
+          </div>
+    </div>
     <script src="./tp.js"></script>
     
     </div>

@@ -6,20 +6,20 @@ g = 9.8;
 fx = f;
 pesoy = m * g;
 
-if (prompt("\u00bfEl plano esta inclinado? (s/n) ") === "s") {
-  inc = Number.parseInt(input("\u00bfCuantos grados(\u00b0) esta inclinado el plano? "));
+if (prompt("¿El plano esta inclinado? (s/n) ") === "s") {
+  inc = Number.parseInt(prompt("¿Cuantos grados(°) esta inclinado el plano? "));
 
   while (inc > 90 || inc < 0) {
     console.log("No es posible, ingrese otro valor ");
-    inc = Number.parseInt(prompt("\u00bfCuantos grados(\u00b0) esta inclinado el plano? "));
+    inc = Number.parseInt(prompt("¿Cuantos grados(°) esta inclinado el plano? "));
   }
 
-  fx = fx + m * g * math.sin(inc * math.pi / 180);
-  pesoy = m * g * math.cos(inc * math.pi / 180);
+  fx = fx + m * g * Math.sin(inc * Math.pi / 180);
+  pesoy = m * g * Math.cos(inc * Math.pi / 180);
 }
 
-if (prompt("\u00bfHay friccion? (s/n) ") === "s") {
-  material = input("\u00bfQue materiales componen a los cuerpos?\na. Madera sobre madera\nb. Acero sobre hielo\nc. Tefl\u00f3n sobre tefl\u00f3n\nd. Caucho sobre cemento seco\ne. Vidrio sobre vidrio\nf. Esqu\u00ed sobre nieve\ng. Madera sobre cuero\nh. Aluminio sobre acero\ni. Articulaciones humanas\nj. Personalizado\n");
+if (prompt("¿Hay friccion? (s/n) ") === "s") {
+  material = prompt("¿Que materiales componen a los cuerpos?\na. Madera sobre madera\nb. Acero sobre hielo\nc. Tefón sobre teflón\nd. Caucho sobre cemento seco\ne. Vidrio sobre vidrio\nf. Esquí sobre nieve\ng. Madera sobre cuero\nh. Aluminio sobre acero\ni. Articulaciones humanas\nj. Personalizado\n");
 
   if (material === "a") {
     ue = 0.5;
@@ -75,7 +75,7 @@ if (prompt("\u00bfHay friccion? (s/n) ") === "s") {
   ffd = ud * pesoy;
   fuerzaNeta = fx - ffd;
 
-  if (ffe > abs(fx)) {
+  if (ffe > Math.abs(fx)) {
     console.log("Fuerza Aplicada:", f, "Newton\nFuerza de Friccion Estatica:", ffe, "Newton\nEste objeto no se mueve porque la friccion entre los cuerpos es muy grande");
     exit();
   } else {
@@ -88,5 +88,31 @@ if (prompt("\u00bfHay friccion? (s/n) ") === "s") {
     console.log("Este objeto no se mueve");
   }
 }
+function planoq() {
+  const planoq = document.getElementById("planoq");
+  planoq.innerHTML = `
+      <label class="col-form-label mt-4">¿A cuántos grados está inclinado el cuerpo?</label>
+      <input type="number" class="form-control">
+  `
+}
+function friccionq() {
+  const friccionq = document.getElementById("friccionq");
+  friccionq.innerHTML = `
+    <label class="col-form-label mt-4">¿Qué materiales componen los cuerpos?</label>
+    <select multiple="" class="form-select" id="exampleSelect2">
+        <option>Madera sobre madera</option>
+        <option>Acero sobre hielo</option>
+        <option>Teflón sobre teflón</option>
+        <option>Caucho sobre cemento seco</option>
+        <option>Vidrio sobre vidrio</option>
+        <option>Esquí sobre nieve</option>
+        <option>Madera sobre cuero</option>
+        <option>Aluminio sobre acero</option>
+        <option>Articulaciones humanas</option>
+        <option>Personalizado</option>
+    </select>
+  `
+}
+
 
 console.log("El objeto tiene una aceleracion de", a, "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)");
