@@ -89,29 +89,39 @@ if (prompt("¿Hay friccion? (s/n) ") === "s") {
   }
 }
 function planoq() {
+  var check = document.getElementById("planoS")
   const planoq = document.getElementById("planoq");
-  planoq.innerHTML = `
+  if (check.checked == true){
+    planoq.innerHTML = `
       <label class="col-form-label mt-4">¿A cuántos grados está inclinado el cuerpo?</label>
-      <input type="number" class="form-control">
-  `
+      <input type="number" class="form-control" id="inputDefault" placeholder="(°)">
+    `
+  } else {
+    planoq.innerHTML = ``
+  }
 }
 function friccionq() {
+  var check = document.getElementById("friccionS")
   const friccionq = document.getElementById("friccionq");
-  friccionq.innerHTML = `
-    <label class="col-form-label mt-4">¿Qué materiales componen los cuerpos?</label>
-    <select multiple="" class="form-select" id="exampleSelect2">
-        <option>Madera sobre madera</option>
-        <option>Acero sobre hielo</option>
-        <option>Teflón sobre teflón</option>
-        <option>Caucho sobre cemento seco</option>
-        <option>Vidrio sobre vidrio</option>
-        <option>Esquí sobre nieve</option>
-        <option>Madera sobre cuero</option>
-        <option>Aluminio sobre acero</option>
-        <option>Articulaciones humanas</option>
-        <option>Personalizado</option>
-    </select>
-  `
+  if (check.checked == true){
+    friccionq.innerHTML = `
+      <label class="col-form-label mt-4">¿Qué materiales componen los cuerpos?</label>
+      <select multiple="" class="form-select" id="exampleSelect2">
+          <option>Madera sobre madera</option>
+          <option>Acero sobre hielo</option>
+          <option>Teflón sobre teflón</option>
+          <option>Caucho sobre cemento seco</option>
+          <option>Vidrio sobre vidrio</option>
+          <option>Esquí sobre nieve</option>
+          <option>Madera sobre cuero</option>
+          <option>Aluminio sobre acero</option>
+          <option>Articulaciones humanas</option>
+          <option>Personalizado</option>
+      </select>
+    `
+  } else {
+    friccionq.innerHTML = ``
+  }
 }
 
 
