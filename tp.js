@@ -1,10 +1,14 @@
 // import * as math from 'math';
 var a, f, ffd, ffe, fuerzaNeta, fx, g, inc, m, material, pesoy, ud, ue;
-m = Number.parseFloat(prompt("Ingrese la masa del cuerpo (Kilogramos) "));
-f = Number.parseFloat(prompt("Ingrese la fuerza aplicada al cuerpo (Newton)(Ingresar valor negativo (-) para mover el objeto en la direccion opuesta) "));
+m = Number.parseFloat(document.getElementById("Masa").nodeValue);
+f = Number.parseFloat(document.getElementById("Fuerza").nodeValue);
 g = 9.8;
 fx = f;
 pesoy = m * g;
+let checkP = document.getElementById("planoS");
+let checkF = document.getElementById("friccionS");
+console.log(m);
+console.log(f);
 
 if (prompt("¿El plano esta inclinado? (s/n) ") === "s") {
   inc = Number.parseInt(prompt("¿Cuantos grados(°) esta inclinado el plano? "));
@@ -89,7 +93,6 @@ if (prompt("¿Hay friccion? (s/n) ") === "s") {
   }
 }
 function planoq() {
-  var check = document.getElementById("planoS")
   const planoq = document.getElementById("planoq");
   if (check.checked == true){
     planoq.innerHTML = `
@@ -101,7 +104,6 @@ function planoq() {
   }
 }
 function friccionq() {
-  var check = document.getElementById("friccionS")
   const friccionq = document.getElementById("friccionq");
   if (check.checked == true){
     friccionq.innerHTML = `
