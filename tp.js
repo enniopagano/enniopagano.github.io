@@ -14,8 +14,8 @@ if (prompt("¿El plano esta inclinado? (s/n) ") === "s") {
     inc = Number.parseInt(prompt("¿Cuantos grados(°) esta inclinado el plano? "));
   }
 
-  fx = fx + m * g * Math.sin(inc * Math.pi / 180);
-  pesoy = m * g * Math.cos(inc * Math.pi / 180);
+  fx = fx + m * g * Math.sin(inc * Math.PI / 180);
+  pesoy = m * g * Math.cos(inc * Math.PI / 180);
 }
 
 if (prompt("¿Hay friccion? (s/n) ") === "s") {
@@ -58,8 +58,8 @@ if (prompt("¿Hay friccion? (s/n) ") === "s") {
                     ud = 0.003;
                   } else {
                     if (material === "j") {
-                      ue = Number.parseFloat(input("Coeficiente de friccion estatico: "));
-                      ud = Number.parseFloat(input("Coeficiente de friccion dinamico: "));
+                      ue = parseFloat(input("Coeficiente de friccion estatico: "));
+                      ud = parseFloat(input("Coeficiente de friccion dinamico: "));
                     }
                   }
                 }
