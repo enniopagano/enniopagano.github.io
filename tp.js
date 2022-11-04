@@ -32,11 +32,11 @@ function calcular(){
     }
   }
   if (checkF.checked == true){
+
     let ms = document.getElementById("materialSelect");
     let ce = document.getElementById("coeficienteEstatico");
     let cd = document.getElementById("coeficienteDinamico");
     materialIndex = ms.selectedIndex;
-    console.log(materialIndex);
     if (materialIndex == "0") {
       ue = 0.5;
       ud = 0.3;
@@ -72,23 +72,6 @@ function calcular(){
                     if (materialIndex == "8") {
                       ue = 0.02;
                       ud = 0.003;
-                    } else {
-                      if (materialIndex == "9") {
-                        ce.innerHTML=`
-                        <label class="col-form-label mt-4">Coeficiente de fricción estático</label>
-                        <input type="number" class="form-control" id="ueInput" placeholder="">
-                        `
-                        let ueInput = parseFloat(document.getElementById("ueInput").value);
-                        ue = ueInput;
-                        cd.innerHTML=`
-                        <label class="col-form-label mt-4">Coeficiente de fricción dinámico</label>
-                        <input type="number" class="form-control" id="udInput" placeholder="">
-                        `
-                        let udInput = parseFloat(document.getElementById("udInput").value);
-                        ud = udInput;
-                        console.log(ue);
-                        console.log(ud);
-                      }
                     }
                   }
                 }
@@ -98,12 +81,22 @@ function calcular(){
         }
       }
     }
+    
+    console.log(ue);
+    console.log(ud);
+    ffe = ue * pesoy;
+    ffd = ud * pesoy;
+    fuerzaNeta = fx - ffd;
+
+    if (ffe > Math.abs(fx)) {
+      console.log("Fuerza Aplicada:", f, "Newton\nFuerza de Friccion Estatica:", ffe, "Newton\nEste objeto no se mueve porque la friccion entre los cuerpos es muy grande");
+      resultado.innerHTML=`
+      <label class="col-form-label mt-4">Este objeto no se mueve porque la fricción entre los cuerpos es muy grande</label>
+      `
+    } else {
+      a = fuerzaNeta / m;
+    }
   }
-  console.log(ue);
-  console.log(ud);
-  ffe = ue * pesoy;
-  ffd = ud * pesoy;
-  fuerzaNeta = fx - ffd;
 }
 
 if (prompt("¿Hay friccion? (s/n) ") === "s") {
@@ -187,6 +180,7 @@ function planoq() {
     planoq.innerHTML = ``
   }
 }
+
 function friccionq() {
   const friccionq = document.getElementById("friccionq");
   if (checkF.checked == true){
@@ -202,8 +196,11 @@ function friccionq() {
           <option>Madera sobre cuero</option>
           <option>Aluminio sobre acero</option>
           <option>Articulaciones humanas</option>
-          <option>Personalizado</option>
       </select>
+      <label for="exampleSelect1" class="form-label mt-4">Personalizado</label>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="personalizado" onclick="personalizado()">
+      </div>
     `
   } else {
     friccionq.innerHTML = ``
