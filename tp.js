@@ -72,6 +72,11 @@ function calcular(){
                     if (materialIndex == "8") {
                       ue = 0.02;
                       ud = 0.003;
+                    } else {
+                      if (checkPe.checked == true){
+                        ue = parseFloat(document.getElementById("coeE").value);
+                        ud = parseFloat(document.getElementById("coeD").value);
+                      }
                     }
                   }
                 }
@@ -201,9 +206,29 @@ function friccionq() {
       <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="personalizado" onclick="personalizado()">
       </div>
+      
     `
   } else {
     friccionq.innerHTML = ``
+  }
+}
+function personalizado() {
+  let cE = document.getElementById("coeficienteEstatico");
+  let cD = document.getElementById("coeficienteDinamico");
+  let checkPe = document.getElementById("personalizado");
+  console.log(cD)
+  if (checkPe.checked == true){
+    cE.innerHTML=`
+      <label class="col-form-label mt-4">Coeficiente de fricción estático</label>
+      <input type="number" class="form-control" id="coeE" placeholder="">
+    `
+    cD.innerHTML=`
+      <label class="col-form-label mt-4">Coeficiente  de fricción dinámico</label>
+      <input type="number" class="form-control" id="coeD" placeholder="">
+    `
+  } else {
+    cE.innerHTML=``
+    cD.innerHTML=``
   }
 }
 
