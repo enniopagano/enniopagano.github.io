@@ -1,5 +1,5 @@
 // import * as math from 'math';
-var a, f, ffd, ffe, fuerzaNeta, fx, g, inc, m, materialIndex, pesoy, ud, ue;
+let a, f, ffd, ffe, fuerzaNeta, fx, g, inc, m, materialIndex, pesoy, ud, ue;
 g = 9.8;
 let checkP = document.getElementById("planoS");
 let checkF = document.getElementById("friccionS");
@@ -10,8 +10,9 @@ function calcular(){
   fx = f;
   pesoy = m * g;
   console.log(m);
-  console.log(f);
+  console.log(fx);
   let resultado = document.getElementById("resultado");
+  let checkPe = document.getElementById("personalizado");
 
   if (checkP.checked == true){
     inc = parseFloat(document.getElementById("inc").value);
@@ -31,51 +32,49 @@ function calcular(){
       console.log(pesoy);
     }
   }
-  if (checkF.checked == true){
-
+  if (checkF.checked == true){  
     let ms = document.getElementById("materialSelect");
-    let ce = document.getElementById("coeficienteEstatico");
-    let cd = document.getElementById("coeficienteDinamico");
     materialIndex = ms.selectedIndex;
-    if (materialIndex == "0") {
-      ue = 0.5;
-      ud = 0.3;
+    if (checkPe.checked == true){
+      ue = parseFloat(document.getElementById("coeE").value);
+      ud = parseFloat(document.getElementById("coeD").value);
     } else {
-      if (materialIndex == "1") {
-        ue = 0.03;
-        ud = 0.02;
+      if (materialIndex == "0") {
+        ue = 0.5;
+        ud = 0.3;
       } else {
-        if (materialIndex == "2") {
-          ue = 0.04;
-          ud = 0.04;
+        if (materialIndex == "1") {
+          ue = 0.03;
+          ud = 0.02;
         } else {
-          if (materialIndex == "3") {
-            ue = 1;
-            ud = 0.8;
+          if (materialIndex == "2") {
+            ue = 0.04;
+            ud = 0.04;
           } else {
-            if (materialIndex == "4") {
-              ue = 0.9;
-              ud = 0.4;
+            if (materialIndex == "3") {
+              ue = 1;
+              ud = 0.8;
             } else {
-              if (materialIndex == "5") {
-                ue = 0.1;
-                ud = 0.05;
+              if (materialIndex == "4") {
+                ue = 0.9;
+                ud = 0.4;
               } else {
-                if (materialIndex == "6") {
-                  ue = 0.5;
-                  ud = 0.4;
+                if (materialIndex == "5") {
+                  ue = 0.1;
+                  ud = 0.05;
                 } else {
-                  if (materialIndex == "7") {
-                    ue = 0.61;
-                    ud = 0.47;
+                  if (materialIndex == "6") {
+                    ue = 0.5;
+                    ud = 0.4;
                   } else {
-                    if (materialIndex == "8") {
-                      ue = 0.02;
-                      ud = 0.003;
+                    if (materialIndex == "7") {
+                      ue = 0.61;
+                      ud = 0.47;
                     } else {
-                      if (checkPe.checked == true){
-                        ue = parseFloat(document.getElementById("coeE").value);
-                        ud = parseFloat(document.getElementById("coeD").value);
+                      if (materialIndex == "8") {
+                        ue = 0.02;
+                        ud = 0.003;
+                      } else {
                       }
                     }
                   }
@@ -86,7 +85,7 @@ function calcular(){
         }
       }
     }
-    
+
     console.log(ue);
     console.log(ud);
     ffe = ue * pesoy;
@@ -101,7 +100,20 @@ function calcular(){
     } else {
       a = fuerzaNeta / m;
     }
+  } else {
+    a = fx / m;
+    console.log(a);
+    if (a == NaN){
+      resultado.innerHTML=`
+      <label class="col-form-label mt-4">Este objeto no se mueve</label>
+      `
+    } else {
+      resultado.innerHTML=`
+      
+      `
+    }
   }
+  console.log(a);
 }
 
 if (prompt("¿Hay friccion? (s/n) ") === "s") {
