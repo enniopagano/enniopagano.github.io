@@ -9,8 +9,6 @@ function calcular(){
   f = parseFloat(document.getElementById("Fuerza").value);
   fx = f;
   pesoy = m * g;
-  console.log(m);
-  console.log(fx);
   let resultado = document.getElementById("resultado");
   let checkPe = document.getElementById("personalizado");
 
@@ -74,7 +72,6 @@ function calcular(){
                       if (materialIndex == "8") {
                         ue = 0.02;
                         ud = 0.003;
-                      } else {
                       }
                     }
                   }
@@ -99,17 +96,21 @@ function calcular(){
       `
     } else {
       a = fuerzaNeta / m;
+      console.log(a);
+      resultado.innerHTML=`
+      <label class="col-form-label mt-4">Este objeto se mueve</label>
+      `
     }
   } else {
     a = fx / m;
     console.log(a);
-    if (a == NaN){
+    if (isNaN(a)){
       resultado.innerHTML=`
       <label class="col-form-label mt-4">Este objeto no se mueve</label>
       `
     } else {
       resultado.innerHTML=`
-      
+      <label class="col-form-label mt-4">Este objeto se mueve raro <span id="xlr8"></span></label>
       `
     }
   }
