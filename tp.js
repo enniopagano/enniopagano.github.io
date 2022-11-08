@@ -10,6 +10,7 @@ function calcular(){
   fx = f;
   pesoy = m * g;
   let resultado = document.getElementById("resultado");
+  let xlr8L = document.getElementById("xlr8");
   let checkPe = document.getElementById("personalizado");
 
   if (checkP.checked == true){
@@ -103,90 +104,19 @@ function calcular(){
     }
   } else {
     a = fx / m;
-    console.log(a);
+    xlr8 = "La aceleración del objeto es " + a + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
+    console.log(xlr8);
     if (isNaN(a)){
       resultado.innerHTML=`
       <label class="col-form-label mt-4">Este objeto no se mueve</label>
       `
     } else {
-      resultado.innerHTML=`
-      <label class="col-form-label mt-4">Este objeto se mueve raro <span id="xlr8"></span></label>
-      `
+      xlr8L.innerHTML= xlr8
     }
   }
   console.log(a);
 }
 
-if (prompt("¿Hay friccion? (s/n) ") === "s") {
-  materialIndex = prompt("¿Que materiales componen a los cuerpos?\na. Madera sobre madera\nb. Acero sobre hielo\nc. Tefón sobre teflón\nd. Caucho sobre cemento seco\ne. Vidrio sobre vidrio\nf. Esquí sobre nieve\ng. Madera sobre cuero\nh. Aluminio sobre acero\ni. Articulaciones humanas\nj. Personalizado\n");
-
-  if (materialIndex === "a") {
-    ue = 0.5;
-    ud = 0.3;
-  } else {
-    if (materialIndex === "b") {
-      ue = 0.03;
-      ud = 0.02;
-    } else {
-      if (materialIndex === "c") {
-        ue = 0.04;
-        ud = 0.04;
-      } else {
-        if (materialIndex === "d") {
-          ue = 1;
-          ud = 0.8;
-        } else {
-          if (materialIndex === "e") {
-            ue = 0.9;
-            ud = 0.4;
-          } else {
-            if (materialIndex === "f") {
-              ue = 0.1;
-              ud = 0.05;
-            } else {
-              if (materialIndex === "g") {
-                ue = 0.5;
-                ud = 0.4;
-              } else {
-                if (materialIndex === "h") {
-                  ue = 0.61;
-                  ud = 0.47;
-                } else {
-                  if (materialIndex === "i") {
-                    ue = 0.02;
-                    ud = 0.003;
-                  } else {
-                    if (materialIndex === "j") {
-                      ue = parseFloat(input("Coeficiente de friccion estatico: "));
-                      ud = parseFloat(input("Coeficiente de friccion dinamico: "));
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  ffe = ue * pesoy;
-  ffd = ud * pesoy;
-  fuerzaNeta = fx - ffd;
-
-  if (ffe > Math.abs(fx)) {
-    console.log("Fuerza Aplicada:", f, "Newton\nFuerza de Friccion Estatica:", ffe, "Newton\nEste objeto no se mueve porque la friccion entre los cuerpos es muy grande");
-    exit();
-  } else {
-    a = fuerzaNeta / m;
-  }
-} else {
-  a = fx / m;
-
-  if (a === 0) {
-    console.log("Este objeto no se mueve");
-  }
-}
 function planoq() {
   const planoq = document.getElementById("planoq");
   if (checkP.checked == true){
