@@ -22,7 +22,7 @@ function calcular(){
       <label class="col-form-label mt-4">No es posible, ingrese otro valor</label>
       `
       resultado.innerHTML=`
-      <label class="col-form-label mt-4">ERROR</label>
+      <label id="xlr8" class="col-form-label mt-4">ERROR</label>
       `
     } else {
       fx = fx + m * g * Math.sin(inc * Math.PI / 180);
@@ -110,7 +110,9 @@ function calcular(){
       <label class="col-form-label mt-4">Este objeto no se mueve</label>
       `
     } else {
+      console.log(xlr8);
       xlr8L.innerHTML= xlr8
+      error.innerHTML=``
     }
   }
   console.log(a);
