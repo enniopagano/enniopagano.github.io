@@ -1,6 +1,8 @@
-#inputDefault{
+/* #inputDefault{
     background-color: rgb(216, 215, 215);
-}
+} */
 #bigButton{
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

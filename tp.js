@@ -1,5 +1,5 @@
 // import * as math from 'math';
-let a, f, ffd, ffe, fuerzaNeta, fx, g, inc, m, materialIndex, pesoy, ud, ue;
+let a, xlr8, f, ffd, ffe, fuerzaNeta, fx, g, inc, m, materialIndex, pesoy, ud, ue;
 g = 9.8;
 let checkP = document.getElementById("planoS");
 let checkF = document.getElementById("friccionS");
@@ -92,19 +92,18 @@ function calcular(){
 
     if (ffe > Math.abs(fx)) {
       console.log("Fuerza Aplicada:", f, "Newton\nFuerza de Friccion Estatica:", ffe, "Newton\nEste objeto no se mueve porque la friccion entre los cuerpos es muy grande");
-      resultado.innerHTML=`
-      <label class="col-form-label mt-4">Este objeto no se mueve porque la fricción entre los cuerpos es muy grande</label>
-      `
+      console.log(f);
+      xlr8 = "Fuerza Aplicada: " + f + " Newton\nFuerza de Fricción Estática" + ffe.toFixed(2) + "Newton\nEste objeto no se mueve porque la fricción entre los cuerpos es muy grandes";
+      xlr8L.innerHTML= xlr8
     } else {
       a = fuerzaNeta / m;
+      xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
       console.log(a);
-      resultado.innerHTML=`
-      <label class="col-form-label mt-4">Este objeto se mueve</label>
-      `
+      xlr8L.innerHTML= xlr8
     }
   } else {
     a = fx / m;
-    xlr8 = "La aceleración del objeto es " + a + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
+    xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
     console.log(xlr8);
     if (isNaN(a)){
       resultado.innerHTML=`
