@@ -15,20 +15,23 @@ function calcular(){
 
   if (checkP.checked == true){
     inc = parseFloat(document.getElementById("inc").value);
+    let error = document.getElementById("error");
     console.log(inc);
     if (inc > 90 || inc < 0){
-      let error = document.getElementById("error");
       error.innerHTML=`
       <label class="col-form-label mt-4">No es posible, ingrese otro valor</label>
       `
       resultado.innerHTML=`
       <label id="xlr8" class="col-form-label mt-4">ERROR</label>
       `
+      xlr8 = "ERROR";
+      xlr8L.innerHTML = xlr8
     } else {
       fx = fx + m * g * Math.sin(inc * Math.PI / 180);
       pesoy = m * g * Math.cos(inc * Math.PI / 180);
       console.log(fx);
       console.log(pesoy);
+      resultado.innerHTML=``
     }
   }
   if (checkF.checked == true){  
@@ -110,9 +113,19 @@ function calcular(){
       <label class="col-form-label mt-4">Este objeto no se mueve</label>
       `
     } else {
-      console.log(xlr8);
-      xlr8L.innerHTML= xlr8
-      error.innerHTML=``
+      if (checkP.checked == true){
+        if (inc > 90 || inc < 0){
+          xlr8L.innerHTML=`ERROR`
+          error.innerHTML=`
+          <label class="col-form-label mt-4">No es posible, ingrese otro valor</label>
+          `
+        } else {
+          error.innerHTML=``
+          xlr8L.innerHTML= xlr8
+        }
+      } else {
+        xlr8L.innerHTML = xlr8
+      }
     }
   }
   console.log(a);
