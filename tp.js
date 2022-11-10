@@ -92,21 +92,25 @@ function calcular(){
     ffe = ue * pesoy;
     ffd = ud * pesoy;
     fuerzaNeta = fx - ffd;
+    console.log(pesoy);
+    console.log(ffd);
 
     if (ffe > Math.abs(fx)) {
-      console.log("Fuerza Aplicada:", f, "Newton\nFuerza de Friccion Estatica:", ffe, "Newton\nEste objeto no se mueve porque la friccion entre los cuerpos es muy grande");
+      console.log("Este objeto no se mueve porque la friccion entre los cuerpos es muy grande");
       console.log(f);
-      xlr8 = "Fuerza Aplicada: " + f + " Newton\nFuerza de Fricción Estática" + ffe.toFixed(2) + "Newton\nEste objeto no se mueve porque la fricción entre los cuerpos es muy grandes";
+      xlr8 = "Este objeto no se mueve porque la fricción entre los cuerpos es muy grandes";
       xlr8L.innerHTML= xlr8
     } else {
+      console.log(fuerzaNeta);
+      console.log(m);
       a = fuerzaNeta / m;
-      xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
+      xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2";
       console.log(a);
       xlr8L.innerHTML= xlr8
     }
   } else {
     a = fx / m;
-    xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2 (Valor positivo: movimiento -> Valor negativo: <-)";
+    xlr8 = "La aceleración del objeto es " + a.toFixed(2) + "m/s^2";
     console.log(xlr8);
     if (isNaN(a)){
       resultado.innerHTML=`
@@ -136,7 +140,7 @@ function planoq() {
   if (checkP.checked == true){
     planoq.innerHTML = `
       <label class="col-form-label mt-4">¿A cuántos grados está inclinado el cuerpo?</label>
-      <input type="number" class="form-control" id="inc" placeholder="(°)">
+      <input type="number" class="form-control" id="inc" placeholder="(0° - 90°)">
     `
   } else {
     planoq.innerHTML = ``
